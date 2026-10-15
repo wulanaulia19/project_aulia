@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-        <color name="black">#FF000000</color>
-        <color name="white">#FFFFFFFF</color>
-        <color name="bg_cream">#FDF6EE</color>
-        <color name="kitkat_red">#D71921</color>
-        <color name="kitkat_card_bg">#FFF0E6</color>
-        <color name="text_dark">#2C2C2B</color>
-        <color name="text_secondary">#7A736E</color>
+        <!-- Referensi Color Palette -->
+        <color name="bg_screen">#EBF2F7</color>           <!-- Latar Belakang -->
+        <color name="card_surface">#FFFFFF</color>        <!-- Permukaan -->
+        <color name="primary_accent">#60939F</color>      <!-- Aksen Utama -->
+        <color name="pastel_pink">#F7D2E5</color>         <!-- Aksen Pastel -->
+        <color name="soft_lilac">#E6DEFA</color>          <!-- Soft Lilac -->
+        <color name="warm_accent">#FCF1A2</color>         <!-- Warm Accent -->
+        <color name="text_main">#14181B</color>           <!-- Teks Utama -->
+        <color name="shadow_soft">#F7FBFE</color>         <!-- Neomorphic Shadow -->
+
+        <color name="white">#FFFFFF</color>
+        <color name="text_sub">#758A99</color>
 </resources>

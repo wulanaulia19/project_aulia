@@ -1,12 +1,8 @@
 <resources>
-    <string name="app_name">WAR-kitkat</string>
-    <string name="btn_my_project">My Project</string>
-    <string name="snack_title">KitKat Chocolate</string>
-    <string name="snack_desc_label">Deskripsi Produk</string>
-    <string name="snack_description">KitKat adalah cokelat renyah berlapis wafer dengan perpaduan susu cokelat yang lezat. Memiliki slogan legendaris \"Have a break, have a KitKat\".</string>
-    <string name="nutrition_label">Komposisi Gizi</string>
-    <string name="calories_val">210 kkal\nKalori</string>
-    <string name="protein_val">3g\nProtein</string>
-    <string name="fat_val">11g\nLemak</string>
-    <string name="carbs_val">26g\nKarbohidrat</string>
+    <string name="app_name">WAR KitKat</string>
+    <string name="title_home">WAR KitKat Hub</string>
+    <string name="title_detail">KitKat Break Lounge</string>
+    <string name="title_web">KitKat Official Web</string>
+    <string name="btn_detail">Explore KitKat</string>
+    <string name="btn_web">Kunjungi Web Resmi</string>
 </resources>

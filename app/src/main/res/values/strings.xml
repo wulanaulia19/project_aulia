@@ -5,4 +5,6 @@
     <string name="title_web">KitKat Official Web</string>
     <string name="btn_detail">Explore KitKat</string>
     <string name="btn_web">Kunjungi Web Resmi</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

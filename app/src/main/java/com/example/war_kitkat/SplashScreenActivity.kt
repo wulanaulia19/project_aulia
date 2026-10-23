@@ -18,7 +18,7 @@ class SplashScreenActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         lifecycleScope.launch {
-            delay(5000)
+            delay(3000)
 
             val sharedPref = getSharedPreferences("user_pref", MODE_PRIVATE)
             val isLogin = sharedPref.getBoolean("isLogin", false)

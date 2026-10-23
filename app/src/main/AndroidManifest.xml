@@ -16,32 +16,39 @@
         android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
-
         <activity
             android:name=".SplashScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".AuthActivity"
             android:exported="false" />
-
-
         <activity
             android:name=".BaseActivity"
             android:exported="false" />
-
         <activity
             android:name=".SnackActivity"
             android:exported="false" />
-
         <activity
             android:name=".WebViewActivity"
             android:exported="false" />
+        <activity
+            android:name=".GmailInputActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".RegisterSuccesActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
 
     </application>
 

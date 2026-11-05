@@ -55,17 +55,35 @@
                 android:textColor="@color/text_main"
                 android:textSize="14sp" />
 
-            <EditText
-                android:id="@+id/etPassword"
+            <!-- Kontainer Password dengan Ikon Toggle Mata -->
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_marginTop="14dp"
-                android:background="@drawable/bg_input_field"
-                android:hint="Password"
-                android:inputType="textPassword"
-                android:paddingHorizontal="16dp"
-                android:textColor="@color/text_main"
-                android:textSize="14sp" />
+                android:layout_marginTop="14dp">
+
+                <EditText
+                    android:id="@+id/etPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_input_field"
+                    android:hint="Password"
+                    android:inputType="textPassword"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="48dp"
+                    android:textColor="@color/text_main"
+                    android:textSize="14sp" />
+
+                <ImageView
+                    android:id="@+id/ivTogglePassword"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="14dp"
+                    android:contentDescription="Lihat Sandi"
+                    android:src="@android:drawable/ic_menu_view"
+                    app:tint="@color/text_sub" />
+            </RelativeLayout>
 
             <Button
                 android:id="@+id/btnLogin"

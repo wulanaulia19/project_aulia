@@ -1,11 +1,12 @@
 package com.example.war_kitkat
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.war_kitkat.databinding.ActivitySnackBinding
+import com.example.war_kitkat.databinding.ActivitySnackBinding // sesuaikan nama binding activity-mu
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class SnackActivity : AppCompatActivity() {
 
@@ -16,20 +17,19 @@ class SnackActivity : AppCompatActivity() {
         binding = ActivitySnackBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Konfigurasi Toolbar & Tombol Back
-        setSupportActionBar(binding.toolbarSnack)
-        supportActionBar?.apply {
-            setDisplayHomeAsUpEnabled(true)
-            setDisplayShowHomeEnabled(true)
-            setHomeAsUpIndicator(R.drawable.ic_arrow_back)
-        }
+        // Hubungkan Toolbar sebagai ActionBar
+        setSupportActionBar(binding.toolbarSnack) // pastikan id toolbar di XML-mu adalah toolbar
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = "KitKat Break Lounge"
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+    // 1. Inflate menu_snack.xml
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_snack, menu)
         return true
     }
 
+    // 2. Tangani klik menu
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             android.R.id.home -> {
@@ -37,14 +37,46 @@ class SnackActivity : AppCompatActivity() {
                 true
             }
             R.id.action_share -> {
-                Toast.makeText(this, "Bagikan KitKat ke Teman!", Toast.LENGTH_SHORT).show()
+                shareKitKatProduct()
                 true
             }
             R.id.action_info -> {
-                Toast.makeText(this, "Diproduksi oleh Nestlé", Toast.LENGTH_SHORT).show()
+                showInfoDialog()
                 true
             }
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    // Fungsi Share via Android Sharesheet
+    private fun shareKitKatProduct() {
+        val shareText = """
+            🍫 KitKat 4 Fingers Bar - Break Lounge
+            Kombinasi klasik empat bilah wafer renyah berlapis cokelat susu berkualitas.
+            
+            Informasi Nutrisi:
+            • Kalori Total: 210 Kkal
+            • Lemak Nabati: 11 gram
+            • Karbohidrat: 26 gram
+            • Protein Susu: 3.2 gram
+            
+            Yuk nikmati waktu istirahatmu dengan KitKat Break Lounge di aplikasi WAR KitKat!
+        """.trimIndent()
+
+        val shareIntent = Intent().apply {
+            action = Intent.ACTION_SEND
+            putExtra(Intent.EXTRA_TEXT, shareText)
+            type = "text/plain"
+        }
+
+        startActivity(Intent.createChooser(shareIntent, "Bagikan KitKat Lounge via:"))
+    }
+
+    private fun showInfoDialog() {
+        MaterialAlertDialogBuilder(this)
+            .setTitle("Tentang KitKat Lounge")
+            .setMessage("KitKat Break Lounge menyajikan katalog camilan KitKat pilihan beserta detail kandungan nutrisi untuk menemani waktu santaimu.")
+            .setPositiveButton("Tutup") { dialog, _ -> dialog.dismiss() }
+            .show()
     }
 }

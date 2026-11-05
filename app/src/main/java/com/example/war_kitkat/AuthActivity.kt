@@ -2,7 +2,10 @@ package com.example.war_kitkat
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
+import android.text.method.HideReturnsTransformationMethod
+import android.text.method.PasswordTransformationMethod
 import androidx.appcompat.app.AppCompatActivity
 import com.example.war_kitkat.databinding.ActivityAuthBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -10,11 +13,15 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 class AuthActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityAuthBinding
+    private var isPasswordVisible = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityAuthBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        // Setup fungsi lihat/sembunyikan password
+        setupPasswordToggle()
 
         // Tombol menuju alur pendaftaran email Gmail
         binding.btnRegisterGmail.setOnClickListener {
@@ -55,6 +62,25 @@ class AuthActivity : AppCompatActivity() {
                     .setPositiveButton("Coba Lagi") { dialog, _ -> dialog.dismiss() }
                     .show()
             }
+        }
+    }
+
+    private fun setupPasswordToggle() {
+        // Pastikan di layout XML ada ImageView dengan id ivTogglePassword di samping etPassword
+        binding.ivTogglePassword.setOnClickListener {
+            if (isPasswordVisible) {
+                // Sembunyikan kata sandi (sensor titik/bintang)
+                binding.etPassword.transformationMethod = PasswordTransformationMethod.getInstance()
+                binding.ivTogglePassword.setColorFilter(Color.parseColor("#757575"))
+                isPasswordVisible = false
+            } else {
+                // Tampilkan teks kata sandi
+                binding.etPassword.transformationMethod = HideReturnsTransformationMethod.getInstance()
+                binding.ivTogglePassword.setColorFilter(Color.parseColor("#D32F2F"))
+                isPasswordVisible = true
+            }
+            // Jaga agar kursor tetap di ujung akhir teks
+            binding.etPassword.setSelection(binding.etPassword.text.length)
         }
     }
 }
